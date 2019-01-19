@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BingMapUI"
         xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized" Height="450" Width="800">
+        Title="TaxiService" WindowState="Maximized" Height="492.971" Width="800">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="Margin" Value="5"></Setter>
@@ -55,8 +55,8 @@
         <StackPanel Grid.Row="1">
             <GroupBox Name="GroupBoxByPoint" Header="Search by point" Margin="5">
                 <StackPanel>
-                    <Button Content="GetRoud" Click="MapGetRoud" Width="50" Height="25" Margin="10" HorizontalAlignment="Left"></Button>
-                    <Button Content="Clear" Click="ClearMap" Width="50" Height="25" Margin="10" HorizontalAlignment="Left"></Button>
+                    <Button Content="Result" Click="MapGetRoud" Width="50" Height="25" Margin="10,10,0,10" HorizontalAlignment="Left" FontWeight="Bold"></Button>
+                    <Button Content="Clear" Click="ClearMap" Width="50" Height="25" Margin="10" HorizontalAlignment="Left" FontStyle="Italic" FontWeight="Bold"></Button>
                 </StackPanel>
             </GroupBox>
             <GroupBox Name="GroupBoxByAdress" IsEnabled="False"  Header="Search by adress" Margin="5">
@@ -78,14 +78,28 @@
                         <TextBox Name="TextBoxTo"></TextBox>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button Margin="5" Content="ShowRoute" Click="GetRouteByAdress"></Button>
+                        <Button Margin="5" Content="Result" Click="GetRouteByAdress" FontWeight="Bold"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>
-            <GroupBox Name="GroupBoxByPrice" IsEnabled="False" Visibility="Hidden">
+            <GroupBox Name="GroupBoxByType" Header="Type by car" Visibility="Visible">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <RadioButton Grid.Row="0" Name="Econom" Content="Econom"></RadioButton>
+                    <RadioButton Grid.Row="1" Name="Standart" Content="Standart"></RadioButton>
+                    <RadioButton Grid.Row="2" Name="Comfort" Content="Comfort"></RadioButton>
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="GroupBoxByPrice" IsEnabled="False" Header="Price list" Visibility="Visible">
                 <StackPanel>
-                    <Label Content="Price" HorizontalAlignment="Center" Height="38" Width="56" RenderTransformOrigin="-6.113,0.965" FontFamily="MV Boli" FontSize="16" Margin="5,5,0,5"/>
-                    <Label Name="Price" HorizontalAlignment="Center" Height="41" Width="108"></Label>
+                    <Grid>
+                        <Label Content="Price" HorizontalAlignment="Left" Height="38" Width="56" RenderTransformOrigin="-6.113,0.965" FontFamily="MV Boli" FontSize="16" Margin="5,5,0,5"/>
+                        <Label x:Name="Price" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Height="41" Width="112" Margin="0,6,10,3" FontSize="16" FontWeight="Bold"/>
+                    </Grid>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

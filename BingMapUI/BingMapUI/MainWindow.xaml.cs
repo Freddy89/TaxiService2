@@ -80,8 +80,25 @@ namespace BingMapUI
                 RouteLayer.Children.Add(routeLine);
                 distance += route.TravelDistance;
                 this.Title = distance.ToString();
-                GroupBoxByPrice.Visibility = Visibility;
-                Price.Content = (distance * 1000 * 0.02).ToString();
+                //GroupBoxByPrice.Visibility = Visibility;
+                if (Econom.IsChecked == true)
+                {
+                    Price.Content = null;
+                    Price.Content = (distance * 1000 * 0.02).ToString() + " .грн";
+                    //MessageBox.Show(Price.Content.ToString());
+                }
+                else if (Standart.IsChecked == true)
+                {
+                    Price.Content = null;
+                    Price.Content = (distance * 1000 * 0.02 + 20).ToString() + " .грн";
+                    //MessageBox.Show(Price.Content.ToString());
+                }
+                else if (Comfort.IsChecked == true)
+                {
+                    Price.Content = null;
+                    Price.Content = (distance * 1000 * 0.02 + 50).ToString() + " .грн";
+                    //MessageBox.Show(Price.Content.ToString());
+                }
             }
         }
 
